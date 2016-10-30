@@ -2,4 +2,24 @@
 
 require '../vendor/autoload.php';
 
-echo("HELLO");
+use Demo\Controller;
+
+$app = new Slim\App();
+
+call_user_func(require __DIR__ . '/../bootstrap/services.php', $app->getContainer());
+
+$app
+    ->get('/', Controller\GetHomepageController::class)
+    ->setName('homepage');
+
+$app
+    ->get('/vote', Controller\GetVoteController::class)
+    ->setName('vote');
+
+$app->post('/vote', Controller\PostVoteController::class);
+
+$app
+    ->get('/results', Controller\GetResultsController::class)
+    ->setName('results');
+
+$app->run();
