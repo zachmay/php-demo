@@ -9,7 +9,10 @@ This makes use of [Vagrant](https://www.vagrantup.com/) and the [Scotchbox.io](h
 - Initialize the database:
     - Start an SSH session to the Vagrant box: `vagrant ssh`
     - Then, navigate to the project directory: `cd /var/www`
-    - Run the database initialization script: `mysql -u root -p scotchbox < init-db.sql`
+    - Run the database initialization script: `mysql -u root -p scotchbox < scripts/init-db.sql` (MySQL password is `root`)
+- Ensure that [Composer](https://getcomposer.org/) is available (I did this locally, but you could do it on the Vagrant box) and 
+  install Composer dependencies: `composer install`. Depending on how Composer is installed on your machine, you may need to 
+  run `php composer.phar install`.
 - The site should be available running at `http://192.168.33.10/`.
 
 ## Running the test suite
