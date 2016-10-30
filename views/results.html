@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+    <table class="table table-bordered">
+        <tr>
+            <th>Candidate</th>
+            <th>Votes</th>
+            <th>Percentage</th>
+        </tr>
+        {% for candidate in candidates %}
+            <tr>
+                <td>{{ candidate.name }}</td>
+                <td>{{ candidate.rawCount }}</td>
+                <td>%{{ candidate.percentage }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

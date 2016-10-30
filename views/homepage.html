@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome to Democracy.biz
+{% endblock %}
+
+{% block content %}
+<p>Click on <a href="{{ path_for('vote') }}">Vote</a> to cast your vote. Click on <a href="{{ path_for('results') }}">Results</a> to see the current results.</p>
+{% endblock %}

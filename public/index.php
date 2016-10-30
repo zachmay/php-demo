@@ -4,13 +4,17 @@ require '../vendor/autoload.php';
 
 use Demo\Controller;
 
-$app = new Slim\App();
+$app = new Slim\App([
+    'settings' => [
+        'displayErrorDetails' => true
+    ]
+]);
 
 call_user_func(require __DIR__ . '/../bootstrap/services.php', $app->getContainer());
 
 $app
     ->get('/', Controller\GetHomepageController::class)
-    ->setName('homepage');
+    ->setName('home');
 
 $app
     ->get('/vote', Controller\GetVoteController::class)

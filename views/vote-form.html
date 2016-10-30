@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cast a Vote
+{% endblock %}
+
+{% block content %}
+    <p>Please fill in the following form to submit your vote.</p>
+    <form action="{{ path_for('vote') }}" method="POST">
+        <div class="form-group">
+            <label for="username">Your Name:</label>
+            <input type="text" class="form-control" name="username">
+        </div>
+        <hr>
+        {% for candidate in candidates %}
+            <div class="radio">
+                <label>
+                    <input type="radio" name="candidate" value="{{ candidate }}">
+                    {{ candidate }}
+                </label>
+            </div>
+        {% endfor %}
+        <button class="btn btn-primary" type="submit">Cast your vote!</button>
+    </form>
+{% endblock %}

@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
 use Demo\Service\VoteService;
 
-class GetResultsController
+class PostVoteController
 {
     protected $view;
     protected $voteService;
@@ -20,8 +20,15 @@ class GetResultsController
 
     public function __invoke(Request $request, Response $response)
     {
-        return $this->view->render($response, 'results.html', [
-            'candidates' => $this->voteService->aggregateResults()
+        $form = $request->getParsedBody();
+
+        $username = $form['username'];
+        $candidate = $form['candidate'];
+
+        $this->voteService->castVote($username, $candidate);
+
+        return $this->view->render($response, 'vote-accepted.html', [
+
         ]);
     }
 }
