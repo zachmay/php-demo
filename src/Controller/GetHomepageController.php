@@ -17,8 +17,6 @@ class GetHomepageController
 
     public function __invoke(Request $request, Response $response)
     {
-        return $this->view->render($response, 'homepage.html', [
-            'message' => 'Hello world'
-        ]);
+        return $this->view->render($response, 'homepage.html', []);
     }
 }

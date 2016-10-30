@@ -27,8 +27,6 @@ class PostVoteController
 
         $this->voteService->castVote($username, $candidate);
 
-        return $this->view->render($response, 'vote-accepted.html', [
-
-        ]);
+        return $this->view->render($response, 'vote-accepted.html', []);
     }
 }

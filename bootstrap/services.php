@@ -37,7 +37,7 @@ return function(Container $c) {
 
     // Domain Service class
     $c[Service\VoteService::class] = function ($c) {
-        return new Service\VoteService($c[PDO::class]);
+        return new Service\VoteService($c[ExtendedPdo::class]);
     };
 
     // Borrowed from: http://www.slimframework.com/docs/features/templates.html
@@ -52,7 +52,7 @@ return function(Container $c) {
         return $view;
     };
 
-    $c[PDO::class] = function($c) {
+    $c[ExtendedPdo::class] = function($c) {
         return new ExtendedPdo('mysql:host=localhost;port=3306;dbname=scotchbox', 'root', 'root');
     };
 };

@@ -7,15 +7,13 @@
 {% block content %}
     <table class="table table-bordered">
         <tr>
-            <th>Candidate</th>
-            <th>Votes</th>
-            <th>Percentage</th>
+            <th class="col-md-9">Candidate</th>
+            <th class="col-md-3">Votes</th>
         </tr>
-        {% for candidate in candidates %}
+        {% for candidate, count in candidates %}
             <tr>
-                <td>{{ candidate.name }}</td>
-                <td>{{ candidate.rawCount }}</td>
-                <td>%{{ candidate.percentage }}</td>
+                <td>{{ candidate }}</td>
+                <td>{{ count }}</td>
             </tr>
         {% endfor %}
     </table>

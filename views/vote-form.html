@@ -9,7 +9,7 @@
     <form action="{{ path_for('vote') }}" method="POST">
         <div class="form-group">
             <label for="username">Your Name:</label>
-            <input type="text" class="form-control" name="username">
+            <input type="text" class="form-control" name="username" required="true">
         </div>
         <hr>
         {% for candidate in candidates %}
